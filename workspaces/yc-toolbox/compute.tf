@@ -17,7 +17,7 @@ resource "google_compute_instance" "yc-toolbox" {
 
   boot_disk {
     initialize_params {
-      image = "cos-beta-81-12871-117-0"
+      image = "cos-cloud/cos-beta-81-12871-117-0"
       type  = "pd-standard"
       size  = "25"
     }
