@@ -18,12 +18,12 @@ write_files:
     [Service]
     Environment="HOME=/home/yctoolbox"
     ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-    ExecStartPre=/usr/bin/docker pull gcr.io/${gcr_project}/${gcr_image}:${gcr_tag}
+    ExecStartPre=/usr/bin/docker pull gcr.io/${gcr_project_id}/${gcr_image_name}:${gcr_image_tag}
     ExecStart=/usr/bin/docker run \
         --rm \
         -u 2000 \
         --name=ycinfrabot \
-        gcr.io/${gcr_project}/${gcr_image}:${gcr_tag}
+        gcr.io/${gcr_project_id}/${gcr_image_name}:${gcr_image_tag}
     ExecStop=/usr/bin/docker stop ycinfrabot
 	Restart=on-failure
 	RestartSec=30

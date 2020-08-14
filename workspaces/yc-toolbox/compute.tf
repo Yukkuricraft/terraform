@@ -2,9 +2,9 @@ data "template_file" "cloud-init" {
   template = "${file("templates/cloud-init.yml.tpl")}"
 
   vars = {
-    gcr_project = module.secrets.gcr_project
-    gcr_image   = module.secrets.gcr_image_name
-    gcr_tag     = module.secrets.gcr_image_tag
+    gcr_project_id = module.secrets.gcr_project_id
+    gcr_image_name = module.secrets.gcr_image_name
+    gcr_image_tag  = module.secrets.gcr_image_tag
   }
 }
 
