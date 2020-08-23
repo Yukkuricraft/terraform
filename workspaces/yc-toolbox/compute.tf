@@ -15,6 +15,8 @@ resource "google_compute_instance" "yc-toolbox" {
 
   tags = ["allow-ssh-2222"]
 
+  allow_stopping_for_update = true
+
   boot_disk {
     initialize_params {
       image = "cos-cloud/cos-beta-81-12871-117-0"
@@ -30,6 +32,11 @@ resource "google_compute_instance" "yc-toolbox" {
       // Ephemeral IP
       // Static IP in the future depending??
     }
+  }
+
+  service_account {
+    email  = google_service_account.ycinfrabot.email
+    scopes = ["cloud-platform"]
   }
 
   metadata = {
